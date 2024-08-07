@@ -61,9 +61,9 @@ const FileTree: React.FC<FileTreeProps> = ({
             {isFile ? (
               <div
                 className={cn(
-                  "pl-2",
+                  "pl-3 border-l-4 border-transparent",
                   isCurrent &&
-                    "border-l-4 border-neutral-600 bg-neutral-700 bg-opacity-25 text-white rounded-md",
+                    "border-neutral-600 bg-neutral-700 bg-opacity-25 text-white rounded-md",
                 )}
                 style={{ paddingLeft: `${level * 16}px` }}
               >
