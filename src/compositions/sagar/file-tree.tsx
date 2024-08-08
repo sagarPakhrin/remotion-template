@@ -1,5 +1,6 @@
 import { FaChevronDown } from "react-icons/fa";
 import { cn } from "../../lib/utils";
+import { useVideoContext } from "../../context/video-context";
 
 type TreeNode = {
   name: string;
@@ -96,16 +97,11 @@ const FileTree: React.FC<FileTreeProps> = ({
   );
 };
 
-export const Explorer = ({
-  paths,
-  currentIndex,
-}: {
-  paths: string[];
-  currentIndex: number;
-}) => {
-  const tree = buildTree(paths);
+export const Explorer = () => {
+  const { currentSequenceIndex, paths } = useVideoContext();
 
-  const currentFile = paths[currentIndex];
+  const tree = buildTree(paths);
+  const currentFile = paths[currentSequenceIndex];
 
   return (
     <div className="w-full flex flex-col">
