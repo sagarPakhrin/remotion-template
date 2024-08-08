@@ -108,7 +108,7 @@ export const Explorer = ({
   const currentFile = paths[currentIndex];
 
   return (
-    <div className="flex flex-col">
+    <div className="w-full flex flex-col">
       <FileTree node={tree} currentFile={currentFile} />
     </div>
   );

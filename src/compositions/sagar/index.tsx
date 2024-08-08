@@ -67,7 +67,7 @@ function Video({ steps }: VideoProps) {
   }
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0D1117" }}>
+    <AbsoluteFill style={{ backgroundColor: "#10121a" }}>
       {/* <ProgressBar steps={steps} /> */}
       {steps.map((step, index) => {
         stepEnd += step.duration;
