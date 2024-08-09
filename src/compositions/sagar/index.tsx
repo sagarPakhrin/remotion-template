@@ -14,6 +14,12 @@ const { steps }: { steps: Step[] } = parseRoot(
       Block.extend({
         code: HighlightedCodeBlock,
         duration: z.string().transform((v) => parseInt(v, 10)),
+        skipEnterAnimation: z
+          .string()
+          .toLowerCase()
+          .optional()
+          .transform((x) => x === "true")
+          .pipe(z.boolean()),
       }),
     ),
   }),
@@ -80,18 +86,19 @@ function Video({ steps, isVertical }: VideoProps) {
           {/* <ProgressBar steps={steps} /> */}
           {steps.map((step, index) => {
             stepEnd += step.duration;
+
             return (
               <Sequence
                 key={index}
                 from={stepEnd - step.duration}
                 durationInFrames={step.duration}
                 name={step.title}
-                className="px-8 py-11"
+                className="px-16 py-20"
               >
                 <Code
                   oldCode={steps[index - 1]?.code}
                   newCode={step.code}
-                  durationInFrames={90}
+                  durationInFrames={step.skipEnterAnimation ? 1 : 90}
                 />
               </Sequence>
             );

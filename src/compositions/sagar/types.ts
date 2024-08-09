@@ -18,4 +18,5 @@ export type Step = {
     style: Record<string, string>;
   };
   duration: number;
+  skipEnterAnimation?: boolean;
 };

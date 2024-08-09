@@ -2,13 +2,14 @@ import { interpolate, interpolateColors, useCurrentFrame } from "remotion";
 import { AnnotationHandler } from "codehike/code";
 
 const highlightColor = "#13202e";
+const defaultDelay = 30;
 
 export const mark: AnnotationHandler = {
   name: "mark",
   Inline: ({ children, annotation }) => {
     const parts = annotation.query.split(" ");
 
-    const delay = +parts[0] || 80;
+    const delay = +parts[0] || defaultDelay;
     const duration = +parts[1] || 20;
     const color = parts[2] || highlightColor;
 
@@ -40,7 +41,7 @@ export const mark: AnnotationHandler = {
   Block: ({ children, annotation }) => {
     const parts = annotation.query.split(" ");
 
-    const delay = +parts[0] || 80;
+    const delay = +parts[0] || defaultDelay;
     const duration = +parts[1] || 20;
 
     const color = parts[2] || highlightColor;

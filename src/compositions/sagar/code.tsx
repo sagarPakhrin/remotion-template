@@ -5,12 +5,13 @@ import { tokenTransitions, useTokenTransitions } from "./token-transitions";
 import { mark } from "./annotations/mark";
 import { Explorer } from "./file-tree";
 import { useVideoContext } from "../../context/video-context";
+import { wordWrap } from "./word-wrap";
 const { fontFamily } = loadFont();
 
 export function Code({
   oldCode,
   newCode,
-  durationInFrames = 30,
+  durationInFrames = 90,
 }: {
   oldCode?: HighlightedCode;
   newCode: HighlightedCode;
@@ -35,11 +36,15 @@ export function Code({
           <Explorer />
         </div>
       )}
-      <div className="flex-col flex-1">
-        <div className="px-5 text-left w-full border-b border-gray-800 text-gray-400 mb-5 pb-4">
+      <div className="flex-col flex-1 text-2xl leading-8">
+        <div className="px-5 text-xl text-left w-full border-b border-gray-800 text-gray-400 mb-5 pb-4">
           {newCode.meta}
         </div>
-        <Pre ref={ref} code={code} handlers={[mark, tokenTransitions]} />
+        <Pre
+          ref={ref}
+          code={code}
+          handlers={[mark, tokenTransitions, wordWrap]}
+        />
       </div>
     </div>
   );
