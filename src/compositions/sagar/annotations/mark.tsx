@@ -30,8 +30,8 @@ export const mark: AnnotationHandler = {
           display: "inline-block",
           backgroundColor,
           borderRadius: 4,
-          padding: "0 16px",
-          margin: "0 -16px",
+          padding: "0 8px 0 24px",
+          margin: "0 -7px 0 5px",
         }}
       >
         {children}
