@@ -1,6 +1,13 @@
 import { Block, HighlightedCodeBlock, parseRoot } from "codehike/blocks";
 import { z } from "zod";
-import { AbsoluteFill, Composition, Sequence, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  Composition,
+  Sequence,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { Code } from "./code";
 
 import Content from "./content.md";
@@ -98,7 +105,7 @@ function Video({ steps, isVertical }: VideoProps) {
                 <Code
                   oldCode={steps[index - 1]?.code}
                   newCode={step.code}
-                  durationInFrames={step.skipEnterAnimation ? 1 : 90}
+                  durationInFrames={step.skipEnterAnimation ? 1 : 70}
                 />
               </Sequence>
             );
